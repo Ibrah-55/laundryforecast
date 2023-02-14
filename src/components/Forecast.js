@@ -33,7 +33,7 @@ export const Forecast = () => {
             
 
                 <Grid mt={'40px'} templateRows={['repeat(2, 1fr)', 'repeat(3, 1fr)', 'repeat(4, 1fr)', 'repeat(5, 1fr)', 'repeat(8, 1fr)']} gap={'20px'}>
-                    {forcastData.map((e, i) => <Forcast key={i} data={e} />)}
+                    {Object.keys(forcastData).map((e, i) => <Forcast key={i} data={e} />)}
                 
                 </Grid>
 

@@ -9,7 +9,6 @@ export const ForcastModal = ({ data }) => {
 
     const { date, day } = dateFormat(data.dt);
     const { isOpen, onOpen, onClose } = useDisclosure();
-
     return (
         <>
             <Box onClick={onOpen} cursor={'pointer'} mt={'10px'}>

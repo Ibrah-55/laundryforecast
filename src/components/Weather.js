@@ -4,7 +4,6 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { celsius } from "../helpers/extraFunctions";
 import { getItem } from "../helpers/sessionStorage";
 import { getWeatherByLocation, syncData } from "../redux/actions";
-import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { Map } from "./Map";
 import { FaSyncAlt } from "react-icons/fa";
