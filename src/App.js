@@ -19,9 +19,7 @@ function App() {
 <Routes>
      <Route path='/navbar' element={< Navbar/> } />
      <Route path='/details' element={< Details/> } />
-
     <Route path='/' element={< Landing/> } />
-
     <Route path='/weathernow' element={<Weather /> } />
     <Route path='/weatherforecast' element={<Forecast /> } />
 
@@ -31,8 +29,6 @@ function App() {
 
 
      </Routes>
-   
-
 </Router>
 <Footer />
 
