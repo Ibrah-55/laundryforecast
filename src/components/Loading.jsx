@@ -3,8 +3,12 @@ import { Container, Image } from "@chakra-ui/react";
 export const Loading = () => {
 
     return (
-        <Container mt={['200px', '100px']} >
+        <div>
+            <p>Loading Request</p>
+            <Container mt={['100px', '50px']} >
             <Image src='/images/loading.gif' />
         </Container>
+        </div>
+      
     );
 };

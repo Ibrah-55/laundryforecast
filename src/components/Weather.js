@@ -12,6 +12,18 @@ import { Newbox, NewText } from "./SmallComponents";
 import { Navbar } from "./Navbar";
 
 
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+
+import { Container, Image } from "@chakra-ui/react";
+
+
 export const Weather = () => {
 
     const { isLoading, weatherData: data, forcastData, isError } = useSelector((state) => state, shallowEqual);
@@ -29,10 +41,45 @@ export const Weather = () => {
         dispatch(syncData(data.name, toast))
     }
 
+    const [open, setOpen] = useState(true);
+ 
+    const handleOpen = () => setOpen(!open);
+    
     return isLoading ? (
         <Loading />
     ) : isError ? (
-        <Error />
+      <div>
+     {handleOpen} 
+     <Link to="/"></Link>
+    
+    <Dialog
+      open={open}
+      handler={handleOpen}
+      animate={{
+        mount: { scale: 1, y: 0 },
+        unmount: { scale: 0.9, y: -100 },
+      }}
+    >
+      <DialogHeader>Error Occured</DialogHeader>
+      <DialogBody divider>
+      <p>Aww snap!! City does not exist. <i className="text-red">Try refreshing page</i></p>
+      <Container mt={['100px', '50px']} p={'50px'}>
+            <Image src='/images/Error.gif' />
+        </Container>
+      </DialogBody>
+      <DialogFooter>
+        <Button
+          variant="text"
+          color="red"
+          onClick={handleOpen}
+          className="mr-1"
+        >
+     <Link to="/">Cancel</Link>
+        </Button>
+        
+      </DialogFooter>
+    </Dialog> 
+    </div>
     ) : (
         <>
         <Navbar />

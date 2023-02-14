@@ -1,4 +1,4 @@
-import { Box, Icon, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { ForcastBox } from "./SmallComponents";
 import { dateFormat } from "../helpers/extraFunctions";
 import { ForcastModal } from "./ForcastModal";
