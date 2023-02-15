@@ -5,7 +5,7 @@ const styles= {
 function Landing() {
   return (
     <div className="h-screen bg-gray-50 flex items-center">
-	<section className="w-full bg-cover bg-center py-72" style={styles}>
+	<section className="w-full bg-cover bg-center py-72 shadow-lg" style={styles}>
 		<div className="container mx-auto text-center text-black">
 			<h1 className="text-3xl font-medium mb-6">Predict your washing</h1>
 			<p className="text-xl mb-12">View current and check weather around. Prevent your clothes from being rained on</p>
