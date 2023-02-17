@@ -5,7 +5,9 @@ export const Error = () => {
 
     return (
         <div>
-            <p>Aww snap!! City does not exist. <i className="text-red">Try refreshing page</i></p>
+            <p>Aw, Snap!
+                <br /> City does not exist. <i className="text-red">Try refreshing page</i></p>
+
 
         <Container mt={['100px', '50px']} p={'50px'}>
             <Image src='/images/Error.gif' />

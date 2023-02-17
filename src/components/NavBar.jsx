@@ -8,7 +8,7 @@ const navigation = [
   {name: 'Weather Now', href:'/weathernow', current: false},
   { name: 'Weather Forecast', href: '/weatherforecast', current: false },
   { name: 'Weather News', href: '/weathernews', current: false },
-  { name: 'Calendar', href: '/calender', current: false },
+  { name: 'Activities', href: '/calender', current: false },
 ]
 
 function classNames(...classes) {
