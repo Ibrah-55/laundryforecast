@@ -3,7 +3,7 @@ import { weatherAppAPI } from "../helpers/API";
 import { myToast } from "../helpers/extraFunctions";
 import { setItem } from "../helpers/sessionStorage";
 import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS } from "./actionTypes";
-const API_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${weatherAppAPI}`;
+const API_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${weatherAppAPI}`;
 
 
 export const getDataLoading = () => {
@@ -24,7 +24,7 @@ export const getWeatherByLocation = (toast) => (dispatch) => {
         try {
             let { latitude, longitude } = position.coords;
             dispatch(getDataLoading());
-            let weatherData = await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherAppAPI}`);
+            let weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherAppAPI}`);
             weatherData = weatherData.data;
             let forcastData = await axios.get(`${API_URL}&lat=${latitude}&lon=${longitude}`);
             forcastData = forcastData.data.daily;
@@ -49,7 +49,7 @@ export const getWeatherByLocation = (toast) => (dispatch) => {
 export const getWeatherByCity = (city, toast) => async (dispatch) => {
     try {
         dispatch(getDataLoading());
-        let weatherData = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherAppAPI}`);
+        let weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherAppAPI}`);
         weatherData = weatherData.data;
         let { lon, lat } = weatherData.coord;
         let forcastData = await axios.get(`${API_URL}&lat=${lat}&lon=${lon}`);
@@ -68,7 +68,7 @@ export const getWeatherByCity = (city, toast) => async (dispatch) => {
 
 export const syncData = (city, toast) => async (dispatch) => {
     try {
-        let weatherData = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherAppAPI}`);
+        let weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherAppAPI}`);
         weatherData = weatherData.data;
         let { lon, lat } = weatherData.coord;
         let forcastData = await axios.get(`${API_URL}&lat=${lat}&lon=${lon}`);
