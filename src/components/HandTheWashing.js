@@ -279,11 +279,15 @@ Sunday
 <p>The suggested day for doing laundry is: {suggestLaundryDay}</p>
 <h3 className="text-lg text-red-400">Get detailed weather forecast and suggested laundry days: </h3>
 <a href='/laundry' className="text-blue-600">View More</a>
+
 </div>
+
   </div>
+  
 </div>
+<div className=""><Footer /></div>
+
 </div>
-<Footer />
 </div>
 </>
 );
