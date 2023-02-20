@@ -275,6 +275,7 @@ Sunday
 
 
 <br />
+<p>CITY: <h5 className="text-blue-500"> {location.toUpperCase()}</h5></p>
 <p>Current Temperature: {temperature}°C</p>
 <p>The suggested day for doing laundry is: {suggestLaundryDay}</p>
 <h3 className="text-lg text-red-400">Get detailed weather forecast and suggested laundry days: </h3>

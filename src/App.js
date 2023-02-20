@@ -3,7 +3,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import './styles/index.css'
 import { BrowserRouter as Router, Switch, Routes,Route,  Link} from 'react-router-dom';
-import {Forecast} from './components/Forecast'
+import Forecast from './components/Forecast'
 import Calender from './components/Calender'
 import HandTheWashing from './components/HandTheWashing'
 import WeatherNews from './components/WeatherNews'
