@@ -9,6 +9,7 @@ import { getWeatherByLocation } from '../redux/actions';
 import { HiLocationMarker } from "react-icons/hi";
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
+import Footer from './Footer';
 
 export const getDataError = () => {
     return { type: GET_DATA_ERROR };
@@ -134,6 +135,7 @@ timeout: 15000,
 
 return (
     <>
+    <div >
 <Flex p={'10px'} minH={'70px'} bg={'#d7defa'} justifyContent={'center'} flexDirection={['row', 'column']} gap={['10px', '10px']}>
             
             <Center px={'10px'}>
@@ -149,9 +151,10 @@ return (
                     Current Location
                 </Button>
             </Center>
-        </Flex ><div style={styles} className="fixed w-full h-full mb-2"> 
+        </Flex >
+        <div style={styles} className="relative w-full h-full mb-2"> 
 
-<div class="flex justify-center h-3/4 w-3/2">
+<div class="flex justify-center ">
   <div class="block p-4 rounded-lg shadow-lg bg-white w-3/4">
     <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Laundry Forecast</h5>
     <div>
@@ -279,6 +282,8 @@ Sunday
 </div>
   </div>
 </div>
+</div>
+<Footer />
 </div>
 </>
 );

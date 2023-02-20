@@ -70,13 +70,15 @@ const LaundryDays = () => {
     const laundryDays = new Set();
     const days = forecast.list;
 
-    for (let i = 0; i < days.length; i += 8) {
+    for (let i = 0; i < days.length; i += 1) {
       const day = days[i];
       const avgTemp = (day.main.temp_max + day.main.temp_min) / 2;
       const weatherConditions = day.weather[0].description;
 
       if (weatherConditions.includes("rain")) continue;
-      if (avgTemp < 20 || avgTemp > 30) continue;
+      if (weatherConditions.includes("broken clouds")) continue;
+
+      if (avgTemp < 17 || avgTemp > 30) continue;
 
       const laundryDay = new Date(day.dt_txt).toLocaleDateString(undefined, {
         weekday: "long",
@@ -92,21 +94,21 @@ const LaundryDays = () => {
   
   return (
     <>
-    <div classNameName="App">
+    <div className="App">
 
-<body class="font-mono bg-gray-400">
-		<div class="container mx-auto">
-			<div class="flex justify-center px-6 my-12">
-				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
+<body className="font-mono bg-gray-400">
+		<div className="container mx-auto">
+			<div className="flex justify-center px-6 my-12">
+				<div className="w-full xl:w-3/4 lg:w-11/12 flex">
 					
-					<div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-						<div class="px-8 mb-4 text-center">
+					<div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+						<div className="px-8 mb-4 text-center">
             <h1>Laundry Day</h1>
       <form onSubmit={handleLocationSubmit}>
       <div className="mb-3 xl:w-26">
     <div className="input-group relative flex flex-wrap items-stretch  mb-4">
       <input type="search" value={location} onChange={handleLocationChange}  className="form-control relative  min-w-0 w-1/2 block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search Your City" aria-label="Search" aria-describedby="button-addon2" />
-      <button type='submit' className="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center" type="button" id="button-addon2">
+      <button type='submit' className="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center" id="button-addon2">
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" className="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
         </svg>
@@ -119,8 +121,8 @@ const LaundryDays = () => {
   onClick={handleCurrentPositionClick}>
   Use current Position
 </button>     
-							<h4 class="pt-4 mb-2 text-2xl">Detailed weather Forecast </h4>
-							<p class="mb-4 text-sm text-gray-700">
+							<h4 className="pt-4 mb-2 text-2xl">Detailed weather Forecast </h4>
+							<p className="mb-4 text-sm text-gray-700">
 								View all days for laundry.
 							</p>
 						</div>
@@ -147,6 +149,31 @@ const LaundryDays = () => {
           ) : (
             <p className="text-red-600">Unfortunately No good laundry days in the next 5 days</p>
           )}
+
+          <h4 className="pt-3 mb-4 text-1xl">Washing Tips </h4>
+          <ul>
+            <li> 
+            <h5 className="text-blue-400">(i). Don’t Go Overboard With Detergent</h5>
+Believe it or not, more detergent does not equal cleaner laundry. In fact, using too much detergent can leave a residue on clothes, making them feel stiff and scratchy,
+ and causing them to dull in color. All of this ages clothes more quickly than they need to, as well.</li>
+ <li> 
+            <h5 className="text-blue-400">(ii). Wash your Darks inside out</h5>
+            To keep your dark clothes vibrantly dark, turn them inside out before you put them in the washing machine. This simple trick will help combat the fading that can happen when you wash blacks, navies, and forest greens because it
+             prevents the fabric surfaces from rubbing against each other. Sure, the interior side might experience some color erosion, but the exterior will remain protected.</li>       
+      <li> <h5 className="text-blue-400">(iii). Use cold Water when possible</h5>
+      Cold water is a good friend to your laundry: It tends to be far less abrasive on fabrics than super-hot water, which can cause shrinking and stretching.
+       It is also especially kind to darks and bright colors since hot water has the ability to fade.</li> 
+             <li> <h5 className="text-blue-400">(iv). Fill a tub with water</h5>
+             Fill a small tub or sink with water at the temperature recommended on the care label. If no care label exists, choose cool to lukewarm water.</li> 
+             <li> <h5 className="text-blue-400">(v). Rinse & Repeat</h5>
+             Drain the sink or tub, and refill it with cool rinse water. Push the garment up and down in the water until all soap is removed.
+              If you're unsure, sniff the garment to make sure it is no longer scented. Repeat the process with clean water if necessary. </li>
+          </ul>
+          <br />
+          <button type="button" className=" inline-block px-5 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight
+           uppercase rounded-full shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none 
+           focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"><a href= "/hangthewashing">Go back</a></button>
+
         </div>
       ) : (
         <p><Loading /></p>
@@ -158,7 +185,7 @@ const LaundryDays = () => {
 	</body>
       
     </div>
-    <div className="fixed bottom-0"> <Footer /></div>
+    <div className="bottom-0"> <Footer /></div>
     
 
     </>
