@@ -152,7 +152,7 @@ return (
                 </Button>
             </Center>
         </Flex >
-        <div style={styles} className="relative w-full h-full mb-2"> 
+        <div style={styles} className="relative w-full h-full mb-20"> 
 
 <div class="flex justify-center ">
   <div class="block p-4 rounded-lg shadow-lg bg-white w-3/4">
@@ -285,10 +285,11 @@ Sunday
   </div>
   
 </div>
-<div className=""><Footer /></div>
 
 </div>
 </div>
+<div className="fixed bottom-0 w-full"><Footer /></div>
+
 </>
 );
 };
