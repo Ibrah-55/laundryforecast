@@ -38,7 +38,7 @@ export const Details = () => {
                 <Navbar />
 
             <Box maxW={'1400px'} m={'20px auto 5px'} p={'20px'} minH={'550px'}>
-                <Grid gridTemplateColumns={['100%', 'repeat(2, 1fr)', 'repeat(2, 1fr)', '30% 27.5% 38%']} gap={'30px'}>
+                <Grid gridTemplateRows={['100%', 'repeat(2, 1fr)', 'repeat(2, 1fr)', '30% 27.5% 38%']} gap={'30px'}>
                     <Newbox>
                         <Box color={'#5e82f4'} p={'20px'} textAlign={'center'}>
                             <Flex justify={'end'}>
@@ -56,7 +56,7 @@ export const Details = () => {
                     </Newbox>
 
                     <Newbox>
-                        <Grid templateColumns={'50% 50%'} h={'100%'} p={'8px'}>
+                        <Grid templateRows={'50% 50%'} h={'100%'} p={'8px'}>
                             <Box py={'10px'} pl={'15%'}>
                                 {['Felt Temp.', 'Humidity', 'Wind', 'Visibility', 'Max Temp.', 'Min Temp.'].map((e, i) => (
                                     <Text key={i} color={'#5e82f4'} fontWeight={500} mt={'15px'} fontSize={'18px'} >{e}</Text>

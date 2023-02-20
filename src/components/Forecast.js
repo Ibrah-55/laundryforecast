@@ -8,7 +8,7 @@ import { Loading } from "./Loading";
 
 import { Forcast } from "./Forcast";
 import { Navbar } from "./Navbar";
-
+import Footer from "./Footer";
 
 export const Forecast = () => {
 

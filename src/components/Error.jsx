@@ -5,7 +5,7 @@ export const Error = () => {
 
     return (
         <div>
-            <p>Aw, Snap!
+            <p>Aw, Snap! Did you allow access to your location?
                 <br /> City does not exist. <i className="text-red">Try refreshing page</i></p>
 
 

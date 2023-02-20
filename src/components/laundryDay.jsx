@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Loading } from "./Loading";
 import { weatherAppAPI } from "../helpers/API";
+import Footer from "./Footer";
 const LaundryDays = () => {
   const [location, setLocation] = useState("");
   const [forecast, setForecast] = useState(null);
@@ -37,33 +38,29 @@ const LaundryDays = () => {
 
   const getLaundryDays = () => {
     if (!forecast) return [];
-
-    const laundryDays = [];
+  
+    const laundryDays = new Set(); 
     const days = forecast.list;
-    
-    
-
+  
     for (let i = 0; i < days.length; i += 1) {
       const day = days[i];
       const avgTemp = (day.main.temp_max + day.main.temp_min) / 2;
       const weatherConditions = day.weather[0].description;
-
+  
       if (weatherConditions.includes("rain")) continue;
-      if (avgTemp < 10) continue;
-
-      if(!laundryDays.includes(day))laundryDays.push(day)
-
-      // laundryDays.indexOf(day) === -1 && laundryDays.push(day)
-      
-
-    //   laundryDays.push(day);
-    var unique = laundryDays.filter((value, index, array) => array.indexOf(value) === index);
-
+      if (avgTemp < 20 || avgTemp > 30) continue;
+  
+      const laundryDay = new Date(day.dt_txt).toLocaleDateString(undefined, {
+        weekday: "long",
+        month: "short",
+        day: "numeric",
+      });
+      laundryDays.add(laundryDay);
     }
-    return unique;
-
+  
+    return Array.from(laundryDays); 
   };
-
+  
   return (
     <div className="App">
       <h1>Enter Your Location</h1>
@@ -82,9 +79,10 @@ const LaundryDays = () => {
   onClick={handleCurrentPositionClick}>
   Use current Position
 </button>
+<h2 className="text-lg text-red-400">Detailed Weather Data at various time intervals</h2>
 {forecast ? (
         <div>
-          <h2>{forecast.city.name}</h2>
+          <h2 className="text-lg text-blue-700">{forecast.city.name}</h2>
           <ul>
             {forecast.list.map((day) => (
               <li key={day.dt}>
@@ -94,7 +92,8 @@ const LaundryDays = () => {
               </li>
             ))}
           </ul>
-          <h2>Best Days for Laundry:</h2>
+          <br />
+          <h2 className="text-lg text-red-400">Best days For laundry</h2>
           
         </div>
       ) : (
@@ -103,7 +102,7 @@ const LaundryDays = () => {
       <ul>
             {getLaundryDays().map((day) => (
               <li key={day.dt}>
-                {new Date(day.dt_txt).toLocaleDateString(undefined, {
+                 {new Date(day).toLocaleDateString(undefined, {
                   weekday: "long",
                   month: "short",
                   day: "numeric",
@@ -111,8 +110,7 @@ const LaundryDays = () => {
               </li>
             ))}
           </ul> 
-
-      
+      <Footer />
     </div>
   );
 };

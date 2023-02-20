@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
-
+import Footer from './Footer'
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -118,6 +118,7 @@ export default function Notofication() {
           ))}
         </Tab.Panels>
       </Tab.Group>
+      < Footer />
     </div>
   )
 }

@@ -11,7 +11,6 @@ import { HiLocationMarker } from "react-icons/hi";
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 
-
 export const getDataError = () => {
     return { type: GET_DATA_ERROR };
 }
@@ -266,7 +265,6 @@ Sunday
 </div>
   </div>
 </div>
-
 </div>
 </>
 );

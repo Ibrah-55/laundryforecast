@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Footer from './Footer'
 function WeatherNews() {
   return (
     <div>
@@ -102,8 +102,8 @@ function WeatherNews() {
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
         </div>
-        <div className="flex-grow pl-6">
-          <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Category 6 Sets Its Sights Over the Rainbow</h2>
+        <div className="flex-grow pl-6 ">
+          <h2 className="text-gray-900 text-lg title-font font-medium mb-2"> Sets Its Sights Over the Rainbow</h2>
           <p className="leading-relaxed text-base">Rainbow appears unusually low in the sky because it has formed early in the afternoon, rather than toward sunset. For a rainbow to form, water droplets must be present in the air in front of an observer and the sun must be shining from behind the observer. Rainbows result from the refraction and reflection of sunlight by these water droplets.</p>
           <a className="mt-3 text-indigo-500 inline-flex items-center" href="https://www.wunderground.com/cat6/category-6-sets-its-sights-over-the-rainbow">Learn More
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
@@ -119,6 +119,7 @@ function WeatherNews() {
   <button type="button" className="inline-block px-10 py-2.5 bg-blue-600 text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" href="https://news.abs-cbn.com/weather"><a href="https://news.abs-cbn.com/weather">View More</a></button>
 </div>
 </section>
+<Footer />
     </div>
   )
 }

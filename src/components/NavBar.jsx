@@ -20,9 +20,13 @@ export default function Navbar() {
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <>
+        
           <div className="mx-auto max-w-7.5xl px-1 sm:px-1 lg:px-0">
+            
             <div className="relative flex h-14 items-center justify-between">
+              
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -33,12 +37,16 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+              <div className="flex flex-shrink-0 items-center">       
+                  <a href='/weathernow'>
                   <img
                     className="block h-8 w-auto lg:hidden"
                     src="weather.png"
                     alt="Icon"
-                  />
+                    
+                  />  
+                  </a>
+                  
                 
                 </div>
              <div className="hidden sm:ml-6 sm:block">

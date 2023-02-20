@@ -1,10 +1,12 @@
 import { background } from '@chakra-ui/react'
 import React from 'react'
+import Footer from './Footer'
 const styles= {
     background: `url('https://images.unsplash.com/photo-1536999606895-b6c1971676c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80')`,
 }
 function Landing() {
   return (
+    <>
     <div className="h-screen bg-no-repeat flex items-center" style={styles}>
         	<section className="w-full  bg-center py-72 shadow-lg" >
 		<div className="container mx-auto text-center text-black">
@@ -20,8 +22,10 @@ function Landing() {
 		</div>
 
 	</section>
-   
 </div>
+<Footer />
+
+</>
   )
 }
 

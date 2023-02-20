@@ -9,8 +9,7 @@ import { Map } from "./Map";
 import { FaSyncAlt } from "react-icons/fa";
 import { Newbox, NewText } from "./SmallComponents";
 import { Navbar } from "./Navbar";
-
-
+import Footer from "./Footer";
 import {
   Button,
   Dialog,
@@ -119,6 +118,7 @@ export const Weather = () => {
 
                
             </Box >
+            <Footer />
         </>
     );
 };
