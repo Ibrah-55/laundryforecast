@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Center,  Icon,  useToast } from "@chakra-ui/react";
-
+import { Button, Center, Flex, Icon, Input, useToast } from "@chakra-ui/react";
 import moment from 'moment';
 import Push from 'push.js';
 import { weatherAppAPI as API_KEY } from '../helpers/API';
@@ -56,8 +55,8 @@ const HandTheWashing = () => {
   }, [location]);
   
   const handleLocationData = (event) => {
-    dispatch(getWeatherByLocation(toast));
-    setLocation({value: event.target.value})
+    setLocation({value: 'q=nairobi'})
+    
 };
 
   const handleLocationChange = (event) => {
@@ -135,7 +134,22 @@ timeout: 15000,
 
 return (
     <>
-<div style={styles} className="fixed w-full h-full mb-2"> 
+<Flex p={'10px'} minH={'70px'} bg={'#d7defa'} justifyContent={'center'} flexDirection={['row', 'column']} gap={['10px', '10px']}>
+            
+            <Center px={'10px'}>
+                <Button
+                    bg={'#5e82f4'}
+                    _hover={{ 'bg': '5e82f4' }}
+                    color={'white'}
+                    w={'97%'}
+                    borderRadius={'15px'}
+                    leftIcon={<Icon w={'20px'} h={'30px'} as={HiLocationMarker} />}
+                    onClick={handleLocationData}
+                >
+                    Current Location
+                </Button>
+            </Center>
+        </Flex ><div style={styles} className="fixed w-full h-full mb-2"> 
 
 <div class="flex justify-center h-3/4 w-3/2">
   <div class="block p-4 rounded-lg shadow-lg bg-white w-3/4">

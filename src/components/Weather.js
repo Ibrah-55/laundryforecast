@@ -13,7 +13,7 @@ import { Navbar } from "./Navbar";
 
 export const Weather = () => {
 
-    const { isLoading, weatherData: data, forcastData, isError } = useSelector((state) => state, shallowEqual);
+    const { isLoading, weatherData: data, isError } = useSelector((state) => state, shallowEqual);
     const [isRotate, setIsRotate] = useState(false);
     const dispatch = useDispatch();
     const toast = useToast();
