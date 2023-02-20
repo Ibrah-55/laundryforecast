@@ -6,8 +6,8 @@ export const Loading = () => {
         <div>
             <p>Loading Request</p>
             <div class="flow-root">
-  <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full float-right bg-blue-600" role="status">
-  </div>
+            <div class="animate-spin inline-block w-10 h-10 border-[3px] border-current border-t-transparent text-orange-600 rounded-full" role="status" aria-label="loading">
+</div>
 </div>
             <Container mt={['100px', '50px']} >
             <Image src='/images/loading.gif' />

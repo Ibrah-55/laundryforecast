@@ -4,23 +4,12 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { celsius } from "../helpers/extraFunctions";
 import { getItem } from "../helpers/sessionStorage";
 import { getWeatherByLocation, syncData } from "../redux/actions";
+import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { Map } from "./Map";
 import { FaSyncAlt } from "react-icons/fa";
 import { Newbox, NewText } from "./SmallComponents";
 import { Navbar } from "./Navbar";
-import Footer from "./Footer";
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from "@material-tailwind/react";
-import { Link } from "react-router-dom";
-
-import { Container, Image } from "@chakra-ui/react";
-
 
 export const Weather = () => {
 
@@ -39,42 +28,14 @@ export const Weather = () => {
         dispatch(syncData(data.name, toast))
     }
 
-    const [open, setOpen] = useState(true);
- 
-    const handleOpen = () => setOpen(!open);
-    
     return isLoading ? (
         <Loading />
     ) : isError ? (
-      <div>
-     {handleOpen} 
-     <Link to="/"></Link>
-    
-    <Dialog
-      open={open}
-      handler={handleOpen}
-      animate={{
-        mount: { scale: 1, y: 0 },
-        unmount: { scale: 0.9, y: -100 },
-      }}
-    >
-      <DialogHeader>Error Occured</DialogHeader>
-      <DialogBody divider>
-      <p>Aww snap!! City does not exist. <i className="text-red">Try refreshing page</i></p>
-      <Container mt={['100px', '50px']} p={'50px'}>
-            <Image src='/images/Error.gif' />
-        </Container>
-      </DialogBody>
-      <DialogFooter>
-      <button type="button" onClick={() => window.location.reload()} class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-black-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Reload</button>
-
-        
-      </DialogFooter>
-    </Dialog> 
-    </div>
+        <Error />
     ) : (
         <>
-        <Navbar />
+                <Navbar />
+
             <Box maxW={'1400px'} m={'20px auto 5px'} p={'20px'} minH={'550px'}>
                 <Grid gridTemplateRows={['100%', 'repeat(2, 1fr)', 'repeat(2, 1fr)', '30% 27.5% 38%']} gap={'30px'}>
                     <Newbox>
@@ -94,7 +55,7 @@ export const Weather = () => {
                     </Newbox>
 
                     <Newbox>
-                        <Grid templateColumns={'50% 50%'} h={'100%'} p={'8px'}>
+                        <Grid templateRows={'50% 50%'} h={'100%'} p={'8px'}>
                             <Box py={'10px'} pl={'15%'}>
                                 {['Felt Temp.', 'Humidity', 'Wind', 'Visibility', 'Max Temp.', 'Min Temp.'].map((e, i) => (
                                     <Text key={i} color={'#5e82f4'} fontWeight={500} mt={'15px'} fontSize={'18px'} >{e}</Text>
@@ -116,9 +77,10 @@ export const Weather = () => {
                     </Newbox>
                 </Grid>
 
+
+
                
             </Box >
-            <Footer />
         </>
     );
 };
