@@ -44,7 +44,7 @@ function Calendar() {
 
   return (
     <>
-    <div className="  sm:items-center md:w-2/3 mx-auto ">
+    <div className="relative sm:items-center md:w-2/3 mx-auto ">
       <h1 className='text-red bg-green-500 w-full'>Today's Weather Calendar</h1>
       
       <table>
@@ -67,7 +67,7 @@ function Calendar() {
         <br />
      <h3 className="bg-green-500">Activities to try based on your current weather.</h3> 
 
-  <div className="container px-5 py-5 mx-auto flex flex-wrap">
+  <div className="relative container px-5 py-5 mx-auto flex flex-wrap">
 
     <div className="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
       <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
@@ -139,13 +139,19 @@ function Calendar() {
           <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">Visit Movie Theatre</h2>
           <p className="leading-relaxed">Shhh! The movie’s playing — from the comfort of your own car. Bring blankets, soda, candy and popcorn to enjoy a movie with friends at a drive-in movie theater, right under a starry sky on a clear summer night.</p>
         </div>
+        <br />
+        <br />
+        <br />
+
       </div>
     </div>
   </div>
+
 </section>
 
     </div>
-    <Footer />
+    <div className="fixed bottom-0"> <Footer /></div>
+
     </>
   );
 }

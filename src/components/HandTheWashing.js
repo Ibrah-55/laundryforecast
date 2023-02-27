@@ -4,19 +4,15 @@ import moment from 'moment';
 import Push from 'push.js';
 import { weatherAppAPI as API_KEY } from '../helpers/API';
 import { GET_DATA_ERROR } from "../redux/actionTypes"
-import { useDispatch } from 'react-redux';
-import { getWeatherByLocation } from '../redux/actions';
 import { HiLocationMarker } from "react-icons/hi";
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import Footer from './Footer';
-
+import { Error } from './Error';
 export const getDataError = () => {
     return { type: GET_DATA_ERROR };
 }
-const styles= {
-    background: `url('https://images.unsplash.com/photo-1536999606895-b6c1971676c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80')`,
-}
+
 
 const HandTheWashing = () => {
     
@@ -24,8 +20,6 @@ const HandTheWashing = () => {
   const [laundryDays, setLaundryDays] = useState([]);
   const [temperature, setTemperature] = useState(0);
   const [forecast, setForecast] = useState([]);
-  const dispatch = useDispatch();
-    const toast = useToast();
 
 
 
@@ -100,7 +94,7 @@ const HandTheWashing = () => {
     }
   });
   
-  let suggestedDay = '';
+  var suggestedDay = '';
   let maxTemperature = -Infinity;
   Object.entries(weatherByDay).forEach(([day, weather]) => {
     if (weather.temperature > maxTemperature) {
@@ -109,12 +103,14 @@ const HandTheWashing = () => {
     }
   });
   return suggestedDay;
+
 };
 
 const handleCheckTemperature = () => {
 if (isLowTemperature(temperature)) {
 Push.create('Low temperature warning', {
-body: `Enter a Location. Current temperature is ${temperature}°C. Select days you could do laundry first, otherwise consider washing clothes on a different day.`,
+body: ` Current temperature is ${temperature}°C. 
+ Consider washing clothes on another day.`,
 timeout: 15000,
 });
 }
@@ -132,10 +128,9 @@ timeout: 15000,
 }
 };
 
-
 return (
     <>
-    <div >
+    <div className="lazy  bg-repeat-round bg-[url('https://i.dailymail.co.uk/1s/2022/04/30/22/57249309-10771333-image-a-92_1651355735593.jpg')]">
 <Flex p={'10px'} minH={'70px'} bg={'#d7defa'} justifyContent={'center'} flexDirection={['row', 'column']} gap={['10px', '10px']}>
             
             <Center px={'10px'}>
@@ -152,10 +147,10 @@ return (
                 </Button>
             </Center>
         </Flex >
-        <div style={styles} className="relative w-full h-full mb-20"> 
+        <div  className="relative w-full h-full"> 
 
-<div class="flex justify-center ">
-  <div class="block p-4 rounded-lg shadow-lg bg-white w-3/4">
+<div class="flex justify-center h-screen mt-3 mb-12 ">
+  <div class="block p-4 rounded-lg shadow-lg bg-white w-3/4 mb-12">
     <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Laundry Forecast</h5>
     <div>
 <Disclosure>
@@ -277,8 +272,8 @@ Sunday
 <br />
 <p>CITY: <h5 className="text-blue-500"> {location.toUpperCase()}</h5></p>
 <p>Current Temperature: {temperature}°C</p>
-<p>The suggested day for doing laundry is: {suggestLaundryDay}</p>
-<h3 className="text-lg text-red-400">Get detailed weather forecast and suggested laundry days: </h3>
+<p>The suggested day for doing laundry is: <em className='text-purple-700'> {suggestLaundryDay()}</em></p>
+<h3 className="text-lg text-red-400">Get detailed weather forecast and suggested laundry days:  </h3>
 <a href='/laundry' className="text-blue-600">View More</a>
 
 </div>

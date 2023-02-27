@@ -8,7 +8,7 @@ function WeatherNews() {
     <h1 className="sm:text-2xl text-2xl font-medium title-font text-center text-gray-900 mb-10">Weather News and Updates around The globe
       <br className="hidden sm:block"/>
     </h1>
-    <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+    <div className=" sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
       <div className="p-4 md:w-1/3 flex">
         <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4 flex-shrink-0">
           <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-6 h-6" viewBox="0 0 24 24">
@@ -119,8 +119,8 @@ function WeatherNews() {
   <button type="button" className="inline-block px-10 py-2.5 bg-blue-600 text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" href="https://news.abs-cbn.com/weather"><a href="https://news.abs-cbn.com/weather">View More</a></button>
 </div>
 </section>
-<Footer />
-    </div>
+<div className="relative bottom-0"> <Footer /> </div>
+ </div>
   )
 }
 

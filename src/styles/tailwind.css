@@ -800,10 +800,6 @@ video {
   height: 6rem;
 }
 
-.h-3\/4 {
-  height: 75%;
-}
-
 .h-4 {
   height: 1rem;
 }
@@ -1178,6 +1174,10 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[url\(\'https\:\/\/i\.dailymail\.co\.uk\/1s\/2022\/04\/30\/22\/57249309-10771333-image-a-92_1651355735593\.jpg\'\)\] {
+  background-image: url('https://i.dailymail.co.uk/1s/2022/04/30/22/57249309-10771333-image-a-92_1651355735593.jpg');
 }
 
 .bg-clip-padding {

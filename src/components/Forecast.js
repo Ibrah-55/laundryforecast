@@ -106,7 +106,7 @@ const Forecast = () => {
                       
                       <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
                           <div className="px-8 mb-4 text-center">
-              <h1>Laundry Day</h1>
+              <h1>Forecast for the next five Days</h1>
         <form onSubmit={handleLocationSubmit}>
         <div className="mb-3 xl:w-26">
       <div className="input-group relative flex flex-wrap items-stretch  mb-4">

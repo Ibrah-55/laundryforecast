@@ -33,10 +33,8 @@ function Footer() {
       >
         <DialogHeader>About.</DialogHeader>
         <DialogBody divider>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad
-          reprehenderit omnis perspiciatis aut odit! Unde architecto
-          perspiciatis, dolorum dolorem iure quia saepe autem accusamus eum
-          praesentium magni corrupti explicabo!
+          Weather forecast with a laundry drying index. The app analyses temparatures, wind, humidity and cloud cover
+          to suggest the best drying day.
         </DialogBody>
         <DialogFooter>
           <Button
