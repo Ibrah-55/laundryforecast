@@ -11,7 +11,7 @@ import Landing from './components/Landing';
 import {Navbar} from './components/Navbar';
 import {Details}  from './components/Details'
 import LaundryDays from './components/laundryDay';
-import Notofication from './components/Notification';
+import Apps from './components/Notification';
 function App() {
   return (
     <div className="App">
@@ -29,7 +29,7 @@ function App() {
     <Route path='/weathernews' element={<WeatherNews/> } />
     <Route path='/calender' element={<Calender /> } />
     <Route path='/laundry' element={<LaundryDays /> } />
-    <Route path='/notifications' element={<Notofication /> } />
+    <Route path='/notifications' element={<Apps /> } />
 
 
 

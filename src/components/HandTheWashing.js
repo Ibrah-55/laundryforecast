@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment} from 'react';
 import { Button, Center, Flex, Icon, Input, useToast } from "@chakra-ui/react";
 import moment from 'moment';
 import Push from 'push.js';
@@ -8,20 +8,56 @@ import { HiLocationMarker } from "react-icons/hi";
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import Footer from './Footer';
-import { Error } from './Error';
+import { Dialog, Transition } from '@headlessui/react'
+
 export const getDataError = () => {
     return { type: GET_DATA_ERROR };
 }
 
 
 const HandTheWashing = () => {
-    
+
+  const [number, setNumber] = useState('');
+  const [name, setName] = useState('');
+  const [body, setBody] = useState('')
+  let [isOpen, setIsOpen] = useState(false)
   const [location, setLocation] = useState('');
   const [laundryDays, setLaundryDays] = useState([]);
   const [temperature, setTemperature] = useState(0);
   const [forecast, setForecast] = useState([]);
 
+  const onSubmit = async (e) => {
+    await e.preventDefault();
 
+    const res = await fetch("/server/sendMessage", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({name: name, to: number, body: body }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      await setNumber("");
+      await setBody("");
+      await setName('');
+    } else {
+      await setNumber("An Error has occurred.");
+      await setName("Error occured")
+      await setBody("An Error has occurred.");
+    }
+    console.log(data)
+  };
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
 
   useEffect(() => {
     const fetchTemperature = async () => {
@@ -272,14 +308,16 @@ Sunday
 <br />
 <p>CITY: <h5 className="text-blue-500"> {location.toUpperCase()}</h5></p>
 <p>Current Temperature: {temperature}°C</p>
-<p>The suggested day for doing laundry is: <em className='text-purple-700'> {suggestLaundryDay()}</em></p>
+<p>The suggested day for doing laundry is: <em className='text-purple-700'> {}</em></p>
 <h3 className="text-lg text-red-400">Get detailed weather forecast and suggested laundry days:  </h3>
+<br />
 <a href='/laundry' className="text-blue-600">View More</a>
 
 </div>
+<a href='/notifications' className="text-indigo-900" >Send Message</a>
 
   </div>
-  
+
 </div>
 
 </div>
