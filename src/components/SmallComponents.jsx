@@ -15,6 +15,14 @@ export const Newbox = ({ children }) => {
         </Box>
     );
 };
+export const Newboxes = ({ children }) => {
+    return (
+        <Box className="zoom" overflow={'hidden'} shadow={'0px 0px 30px 6px #E2E2E2'} borderRadius={'5px'} h={'150px'} w={"100px"}>
+            {children}
+        </Box>
+    );
+};
+
 
 export const NewText = ({ children }) => {
     return (

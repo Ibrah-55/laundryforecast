@@ -99,9 +99,9 @@ const LaundryDays = () => {
 <body className="font-mono bg-gray-400">
 		<div className="container mx-auto">
 			<div className="flex justify-center px-6 my-12">
-				<div className="w-full xl:w-3/4 lg:w-11/12 flex">
+				<div className="w-full ">
 					
-					<div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+					<div className="w-full bg-white p-5 rounded-lg lg:rounded-l-none">
 						<div className="px-8 mb-4 text-center">
             <h1>Laundry Day</h1>
       <form onSubmit={handleLocationSubmit}>

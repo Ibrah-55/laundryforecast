@@ -147,7 +147,7 @@ if (isLowTemperature(temperature)) {
 Push.create('Low temperature warning', {
 body: ` Current temperature is ${temperature}°C. 
  Consider washing clothes on another day.`,
-timeout: 15000,
+timeout: 25000,
 });
 }
 const suggestedDay = suggestLaundryDay();
@@ -311,7 +311,7 @@ Sunday
 <p>The suggested day for doing laundry is: <em className='text-purple-700'> {}</em></p>
 <h3 className="text-lg text-red-400">Get detailed weather forecast and suggested laundry days:  </h3>
 <br />
-<a href='/laundry' className="text-blue-600">View More</a>
+<a href='/laundrys' className="text-blue-600">View More</a>
 
 </div>
 <a href='/notifications' className="text-indigo-900" >Send Message</a>

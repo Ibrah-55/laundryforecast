@@ -25,17 +25,53 @@ function Calendar() {
       .catch(error => console.error(error));
   }, [selectedDate]);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
   function renderTableRow(date) {
     if (!weatherData) return null;
 
     return (
       <tr key={date.toISOString()}>
-        
+                    <br />
+
         <td>{date.toDateString()}</td>
+        <br />
 
         <td>{weatherData.weather[0].description}</td>
+<br />
+        <td>{Math.round(weatherData.main.temp - 273)}<sup>o</sup>C  </td>
+        <br />
 
-        <td>{weatherData.main.temp}</td>
 
         <td>{weatherData.main.humidity}</td>
       </tr>
@@ -50,10 +86,14 @@ function Calendar() {
       <table>
         <thead>
           <tr>
-            <th>Date </th>
             
+            <th>Date </th>
+            <br />
+
             <th>Weather </th>
+            <br />
             <th>Temperature </th>
+            <br />
 
             <th>Humidity   </th>
           </tr>

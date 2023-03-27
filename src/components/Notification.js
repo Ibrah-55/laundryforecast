@@ -92,12 +92,14 @@ class Apps extends Component {
 					
           
 					</div>
+ 
 	</div>
+  
 </div>
-
 
         
       </form>
+      
     );
   }
 }

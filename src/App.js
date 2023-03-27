@@ -12,6 +12,8 @@ import {Navbar} from './components/Navbar';
 import {Details}  from './components/Details'
 import LaundryDays from './components/laundryDay';
 import Apps from './components/Notification';
+import WashingClothesApp  from './components/Hang';
+import Hangss from './components/Hangss';
 function App() {
   return (
     <div className="App">
@@ -30,6 +32,10 @@ function App() {
     <Route path='/calender' element={<Calender /> } />
     <Route path='/laundry' element={<LaundryDays /> } />
     <Route path='/notifications' element={<Apps /> } />
+    <Route path='/hang' element={<WashingClothesApp  /> } />
+    <Route path='/hangs' element={<Hangss  /> } />
+
+
 
 
 
