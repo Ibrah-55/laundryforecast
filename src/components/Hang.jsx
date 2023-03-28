@@ -1,13 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 import axios from 'axios';
 import { weatherAppAPI as API_KEY } from '../helpers/API';
 import { position } from '@chakra-ui/react';
 import { googleMapAPI as GEOCODING_API_KEY} from '../helpers/API';
+import moment from 'moment';
+import Push from 'push.js';
+import { Loading } from "./Loading";
+
+import { Canvas,useFrame,useLoader } from "@react-three/fiber";
+import * as THREE from "three";
+import earthImg from '../giphy1.gif'
+
+const Sphere=()=>{
+   const base=new THREE.TextureLoader().load(earthImg)
+   const ref=useRef()
+   useFrame(() => (ref.current.rotation.x=ref.current.rotation.y += 0.01))
+   return(
+      <mesh visible castShadow ref={ref}>
+      <directionalLight intensity={0.5} />
+      <sphereGeometry attach="geometry" args={[2, 32, 32]} />
+      <meshBasicMaterial
+         map={base}
+         color="white"
+      />
+      </mesh>
+   )
+}
 
 const WashingClothesApp = () => {
-  const [location, setLocation] = useState(null);
+  const [locations, setLocations] = useState(null);
   const [cityName, setCityName] = useState(null);
   const [error, setError] = useState(null);
+  const [body, setBody] = useState('')
 
   const [days, setDays] = useState([]);
 
@@ -16,13 +40,13 @@ const WashingClothesApp = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
-      setLocation({ latitude, longitude });
+      setLocations({ latitude, longitude });
     });
   }, []);
 
   useEffect(() => {
-    if (location) {
-      const API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${API_KEY}`;
+    if (locations) {
+      const API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${locations.latitude}&lon=${locations.longitude}&appid=${API_KEY}`;
       
       axios.get(API_URL)
 
@@ -30,7 +54,7 @@ const WashingClothesApp = () => {
        
         .catch(error => console.log(error));
     }
-  }, [location]);
+  }, [locations]);
 // const locations= () =>{
 //     navigator.geolocation.getCurrentPosition(
 //         (position) => {
@@ -107,7 +131,7 @@ const getCityName = async (latitude, longitude) => {
     }
 
     days.forEach(day => {
-      const API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=${API_KEY}&cnt=8&units=metric`;
+      const API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${locations.latitude}&lon=${locations.longitude}&appid=${API_KEY}&cnt=8&units=metric`;
       
       axios.get(API_URL)
         .then(response => {
@@ -135,8 +159,8 @@ const getCityName = async (latitude, longitude) => {
 
 return (
 <div>
-{!location && <p>Loading...</p>}
-{location && !weatherData && <p>Getting weather data...</p>}
+{!locations&& <p>Loading...</p>}
+{locations && !weatherData && <p><Loading /></p>}
 {weatherData && (
 <div>
 <h1>Today's Weather</h1>
@@ -146,9 +170,27 @@ return (
 <p>Humidity: {weatherData.main.humidity}%</p>
 <p>Wind Speed: {weatherData.wind.speed} m/s</p>
 
-<p>{isGoodDayForWashingClothes() ? 'It is Not a good day for washing clothes!' :
- 'Today It is a good day for washing clothes.'}</p>
- 
+{isGoodDayForWashingClothes() ? <div class="flex bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700 " role="alert">
+        <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <div>
+            <span class="font-medium">Weather Unpreictable!!!</span> <br />Weather Conditions are Not fit for washing clothes therefore, <br /><em className='text-xl text-blue-500'>Today is <i className='text-2xl text-red-500'>Not</i> a Good Day For washing Clothes. <br /> Try Washing another Day</em>
+        </div>
+    </div> :  
+    
+    <div class="flex justify-center items-center bg-green-100 rounded-lg p-4 mb-4 text-sm text-purple-700 w-1/2" role="alert">
+        <svg class="w-10 h-10 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <div>
+            <span class="font-medium">You are Lucky!!!</span> <br />Weather Conditions are fit for washing clothes therefore, <br /><em className='text-xl text-blue-500'>Today is a <i className='text-2xl text-red-500'>Good</i> Day For washing Clothes.</em>
+        </div>
+    </div>}
+
+    
+{/* 
+
+{isGoodDayForWashingClothes(Push.create('Weather Conditions are fit for washing clothes therefore, Today is a Good Day For washing Clothes')) }
+
+{!isGoodDayForWashingClothes() ? "" : Push.create('Today is not a Good Day For washing Clothes') }
+  */}
 </div>
 
 
@@ -170,6 +212,10 @@ return (
 </ul>
 </div>
 )}
+  <Canvas>
+         <ambientLight />
+         <Sphere/>
+      </Canvas>
 </div>
 );
 };
