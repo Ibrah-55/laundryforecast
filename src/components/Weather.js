@@ -120,113 +120,7 @@ export const Weather = () => {
                                 <NewText>{celsius(data.main.temp_max)}<sup>o</sup> C</NewText>
                                 <NewText>{celsius(data.main.temp_min)}<sup>o</sup> C</NewText>
                             </Box>      </div>
-      
-      <div class=" border pl-4 pt-4 font-semibold">
-      <div class="flex flex-row border pl-4 pt-4 font-semibold">
-      <h4 className="text-purple-400 font-semibold">Activities</h4>
-      
-</div>
-
-                    <div class="flex flex-row border pl-4 pt-4 font-semibold">
-                    <Newboxes >
-                        <Box color={'#5e82f4'} p={'10px'} textAlign={'center'}>
-                           
-                       - Running
-                        <h6 className="text-black">Felt Temp.</h6>
-                       <h6 className="text-pink-500"> {Math.round(data.main.temp - 273)}<sup>o</sup>C      </h6>  
-                       <span class="flex flex-col mt-3 w-full p-0.5 bg-green-600 lg:w-1/3"><h6 className="text-white">✓</h6></span>
-                
-                        </Box>
-                    </Newboxes> 
-                    <Newboxes >
-                        <Box color={'#5e82f4'} p={'10px'} textAlign={'center'}>
-                           
-                      - Cycling
-                        <h6 className="text-black">Felt Temp.</h6>
-                       <h6 className="text-pink-500"> {Math.round(data.main.temp - 273)}<sup>o</sup>C      </h6>  
-                       <span class="flex flex-col mt-3 w-full p-0.5 bg-green-600 lg:w-1/3"><h6 className="text-white">✓ </h6></span>
-
-                        </Box>
-                    </Newboxes> 
-                    <Newboxes >
-                        <Box color={'#5e82f4'} p={'10px'} textAlign={'center'}>
-                           
-                         Swimming
-                        <h6 className="text-black">Felt Temp.</h6>
-                       <h6 className="text-pink-500"> {Math.round(data.main.temp - 273)}<sup>o</sup>C      </h6>  
-                       <span class="flex flex-col mt-3 w-full p-0.5 bg-red-600 lg:w-1/3"><h6 className="text-white">-</h6></span>
-
-                        </Box>
-                    </Newboxes> 
-</div>
-<div class="flex flex-row border pl-4 pt-4 font-semibold">
-                    <Newboxes >
-                        <Box color={'#5e82f4'} p={'10px'} textAlign={'center'}>
-                           
-                        - Hiking
-                        <h6 className="text-black">Felt Temp.</h6>
-                       <h6 className="text-pink-500"> {Math.round(data.main.temp - 273)}<sup>o</sup>C      </h6>  
-                       <span class="flex flex-col mt-3 w-full p-0.5 bg-green-600 lg:w-1/3"><h6 className="text-white">✓ </h6></span>
-
-                        </Box>
-                    </Newboxes> 
-                    <Newboxes >
-                        <Box color={'#5e82f4'} p={'10px'} textAlign={'center'}>
-                         Stargazing
-                        <h6 className="text-black">Felt Temp.</h6>
-                       <h6 className="text-pink-500"> {Math.round(data.main.temp - 273)}<sup>o</sup>C      </h6>  
-                       
-                       <span class="flex flex-col mt-3 w-full p-0.5 bg-red-600 lg:w-1/3"><h6 className="text-white">-</h6></span>
-
-                        </Box>
-                    </Newboxes> 
-                    <Newboxes >
-                        <Box color={'#5e82f4'} p={'10px'} textAlign={'center'}>
-                           
-                        - Golf
-                        <h6 className="text-black">Felt Temp.</h6>
-                       <h6 className="text-pink-500"> {Math.round(data.main.temp - 273)}<sup>o</sup>C      </h6>  
-                       <span class="flex flex-col mt-3 w-full p-0.5 bg-green-600 lg:w-1/3"><h6 className="text-white">✓ </h6></span>
-
-                        </Box>
-                    </Newboxes> 
-</div>
-                    <div class="flex flex-row border pl-4 pt-4 font-semibold">
-                    <Newboxes >
-                        <Box color={'#5e82f4'} p={'10px'} textAlign={'center'}>
-                           
-                        - Fishing
-                        <h6 className="text-black">Felt Temp.</h6>
-                       <h6 className="text-pink-500"> {Math.round(data.main.temp - 273)}<sup>o</sup>C      </h6>  
-                       <span class="flex flex-col mt-3 w-full p-0.5 bg-red-600 lg:w-1/3"><h6 className="text-white">-</h6></span>
-
-                        </Box>
-                    </Newboxes> 
-                    <Newboxes >
-                        <Box color={'#5e82f4'} p={'10px'} textAlign={'center'}>
-                           
-                        - Bowling
-                        <h6 className="text-black">Felt Temp.</h6>
-                       <h6 className="text-pink-500"> {Math.round(data.main.temp - 273)}<sup>o</sup>C      </h6>  
-                       <span class="flex flex-col mt-3 w-full p-0.5 bg-green-600 lg:w-1/3"><h6 className="text-white">✓ </h6></span>
-
-                        </Box>
-                    </Newboxes> 
-                    <Newboxes >
-                        <Box color={'#5e82f4'} p={'10px'} textAlign={'center'}>
-                           
-                         Gp Karting
-                        <h6 className="text-black">Felt Temp.</h6>
-                       <h6 className="text-pink-500"> {Math.round(data.main.temp - 273)}<sup>o</sup>C      </h6>  
-                       <span class="flex flex-col mt-3 w-full p-0.5 bg-red-600 lg:w-1/3"><h6 className="text-white">-</h6></span>
-
-                        </Box>
-                    </Newboxes> 
-</div>
-           
-                    
-                    
-      </div>
+    
       
       <div class="row-span-2 border pl-4 pt-4 ">
         <h4 className="text-purple-400 font-semibold">Weather News</h4>
@@ -245,9 +139,7 @@ Showers in April</a></h3>
   <button type="button" className="inline-block px-10 py-2.5 bg-blue-600 text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" href="https://news.abs-cbn.com/weather"><a href="/weathernews">View More</a></button>
 </div>
       </div>
-      <div class="border pl-4 pt-4 ">
-    <h2>Joy</h2>
-                                   </div>
+   
       {/* <div class="border pl-4 pt-4 ">
       <h4 className="text-purple-400">Weather Newss</h4>
       </div> */}

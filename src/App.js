@@ -24,7 +24,6 @@ function App() {
      <Route path='/navbar' element={< Navbar/> } />
      <Route path='/details' element={< Details/> } />
     <Route path='/' element={< Landing/> } />
-    <Route path='/weathernow' element={<Forecast /> } />
     <Route path='/weatherforecast' element={<Forecast /> } />
 
     <Route path='/hangthewashing' element={<HandTheWashing /> } />

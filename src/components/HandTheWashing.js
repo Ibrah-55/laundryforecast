@@ -348,12 +348,12 @@ return (
             <span class="font-medium">You are Lucky!!!</span> <br />Weather Conditions are fit for washing clothes therefore, <br /><em className='text-xl text-blue-500'>Today is a <i className='text-2xl text-red-500'>Good</i> Day For washing Clothes.</em>
         </div>
     </div>}
-{/* 
+
 
 {isGoodDayForWashingClothes(Push.create('Weather Conditions are fit for washing clothes therefore, Today is a Good Day For washing Clothes')) }
 
 {!isGoodDayForWashingClothes() ? "" : Push.create('Today is not a Good Day For washing Clothes') }
-  */}
+ 
 </div>
 
 )}
@@ -373,27 +373,13 @@ return (
 </ul>
 </div>
 )}
- 
+ <Canvas>
+         <ambientLight />
+         <Sphere/>
+      </Canvas>
 </div>
-    
-<Disclosure>
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                <span>About laundry forecast</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                This app helps you choose what day you could carry out laundry by evaluating weather temparature, 
-                humidity and how the clouds look like
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
+   <p className='text-xl text-red-500'>Help you decide the best day with Options </p>
+
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>

@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Routes,Route,  Link} from 'react-route
 
 const navigation = [
   { name: 'Homepage', href: '/', current: true},
-  {name: 'Weather Now', href:'/weathernow', current: false},
   { name: 'Weather Forecast', href: '/weatherforecast', current: false },
   { name: 'Weather News', href: '/weathernews', current: false },
   { name: 'Activities', href: '/calender', current: false },
