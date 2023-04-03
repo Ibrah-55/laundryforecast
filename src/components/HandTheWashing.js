@@ -338,7 +338,7 @@ return (
 {isGoodDayForWashingClothes() ? <div class="flex bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700 " role="alert">
         <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
         <div>
-            <span class="font-medium">Weather Unpreictable!!!</span> <br />Weather Conditions are Not fit for washing clothes therefore, <br /><em className='text-xl text-blue-500'>Today is <i className='text-2xl text-red-500'>Not</i> a Good Day For washing Clothes. <br /> Try Washing another Day</em>
+            <span class="font-medium">Weather Unpredictable!!!</span> <br />Weather Conditions are Not fit for washing clothes therefore, <br /><em className='text-xl text-blue-500'>Today is <i className='text-2xl text-red-500'>Not</i> a Good Day For washing Clothes. <br /> Try Washing another Day</em>
         </div>
     </div> :  
     
@@ -409,7 +409,7 @@ Enter your Location:
 
   <div class=" mb-3 xl:w-1/2">
     <div class="input-group relative flex flex-wrap items-stretch  mb-4">
-      <input type="search" value={location} defaultValue="Nairobi" onChange={handleLocationChange}  class="form-control relative flex-auto min-w-0 block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" required/>
+      <input type="search" value={location}  onChange={handleLocationChange}  class="form-control relative flex-auto min-w-0 block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" required/>
       <button class="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center" type="button" id="button-addon2">
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>

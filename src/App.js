@@ -22,17 +22,18 @@ function App() {
 <Router>
 <Routes>
      <Route path='/navbar' element={< Navbar/> } />
-     <Route path='/details' element={< Details/> } />
+     {/* <Route path='/details' element={< Details/> } /> */}
     <Route path='/' element={< Landing/> } />
     <Route path='/weatherforecast' element={<Forecast /> } />
 
     <Route path='/hangthewashing' element={<HandTheWashing /> } />
     <Route path='/weathernews' element={<WeatherNews/> } />
     <Route path='/calender' element={<Calender /> } />
-    <Route path='/laundry' element={<LaundryDays /> } />
+   <Route path='/laundry' element={<LaundryDays /> } />
+    {/* 
     <Route path='/notifications' element={<Apps /> } />
     <Route path='/hang' element={<WashingClothesApp  /> } />
-    <Route path='/hangs' element={<Hangss  /> } />
+    <Route path='/hangs' element={<Hangss  /> } /> */}
 
 
 
